@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -21,24 +22,57 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Firebase.setAndroidContext(this);
-
         Firebase myFirebase = new Firebase("https://blazing-torch-3465.firebaseio.com/");
 
-
-        myFirebase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                System.out.println("There are " + snapshot.getChildrenCount() + " blog posts");
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-
-                }
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-                System.out.println("The read failed: " + firebaseError.getMessage());
-            }
-        });
+//
+//        myFirebase.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot snapshot) {
+//                System.out.println(+ snapshot.getChildrenCount());
+//                for (DataSnapshot postSnapshot: snapshot.getChildren+ " - " + post.getTitle());
+//            }()) {
+//                    BlogPost post= postSnapshot.getValue(BlogPost.class);
+//                    System.out.println(post.getAuthor()
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//                System.out.println("The read failed: " + firebaseError.getMessage());
+//            }
+//        });
+//
+//        myFirebase.addChildEventListener(new ChildEventListener() {
+//            // Retrieve new posts as they are added to the database
+//            @Override
+//            public void onChildAdded(DataSnapshot snapshot, String previousChildKey) {
+//                BlogPost newPost = snapshot.getValue(BlogPost.class);
+//                System.out.println("Author: " + newPost.getAuthor());
+//                System.out.println("Title: " + newPost.getTitle());
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//
+//            }
+//
+//            //... ChildEventListener also defines onChildChanged, onChildRemoved,
+//            //    onChildMoved and onCanceled, covered in later sections.
+//        });
 
         myFirebase.child("keyboard").child("Altec").setValue("A1");
         myFirebase.child("lastname").setValue("soco");
