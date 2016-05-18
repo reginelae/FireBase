@@ -74,9 +74,8 @@ public class MainActivity extends AppCompatActivity {
 //            //    onChildMoved and onCanceled, covered in later sections.
 //        });
 
-        myFirebase.child("keyboard").child("Altec").setValue("A1");
         myFirebase.child("lastname").setValue("soco");
-        myFirebase.child("firstname").setValue("regine lae");
+        myFirebase.child("firstname").setValue("regine");
 
       setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
