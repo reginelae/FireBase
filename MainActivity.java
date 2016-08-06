@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -22,6 +23,8 @@ import com.firebase.client.ValueEventListener;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,6 +43,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        etName = (EditText) findViewById(R.id.name);
+        etNumber = (EditText)findViewById(R.id.number);
+        btnAdd = (Button) findViewById(R.id.add);
+        btnSearch = (Button) findViewById(R.id.search);
+        btnDelete = (Button) findViewById(R.id.delete);
+
+        ArrayList<Contacts> values = new ArrayList<>();
+        final ArrayAdapter<Contacts> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, values);
+
+
 
 
 
