@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void deleteContact(final DatabaseReference AddContacts) {
-        Query deleteQuery = AddContacts.orderByChild("Contacts").equalTo("james");
+        Query deleteQuery = AddContacts.orderByChild("Contacts").equalTo(null);
         deleteQuery.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
